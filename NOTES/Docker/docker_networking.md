@@ -35,7 +35,7 @@
 ####containers will have independent network stack without any special net configuration but only the `lo`(loopwork)network card is working for process communication.In this word,this mode cut out the minimum configuration.So it's free for developers to custom the container network as wish by using three-party tools with the `none` configuration ,that providing the highest flexibility.
 
 ### dependence
-####Containers will communicate with others net namespace,so the isolation between containers will gone,and the isolation with host is still exist,The network model can refer to the following image:
+#### Containers will communicate with others net namespace,so the isolation between containers will gone,and the isolation with host is still exist,The network model can refer to the following image:<br>
 ![](http://www.skycloudsoftware.com/wp-content/uploads/docker%E8%AF%A6%E8%A7%A303.jpg?_=6680205)
 #### Containers can communicate with the net namespace `localhost` with high transmission efficiency in this mode,that also save the network resources but not change the way of communication.It works a lot in some special occasion,such as, `pod` in `Kubernetes`, in this case,`Kubernetes` create a container to serve as a infrastructure,and other containers can share the net namespace of that under the same `pod`,they unit as a whole body. 
 
