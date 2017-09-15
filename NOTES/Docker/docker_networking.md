@@ -32,7 +32,7 @@
 #### Obviously,it must occupy ports on host in the bridge mode,resulting in consuming port resources make it hard to manage resources of host.In addition,it will reduce the performance and efficiency because the communication is based on iptables NAT above three lays.
 
 ### none
-####containers will have independent network stack without any special net configuration but only the `lo`(loopwork)network card is working for process communication.In this word,this mode cut out the minimum configuration.So it's free for developers to custom the container network as wish by using three-party tools with the `none` configuration ,that providing the highest flexibility.
+#### containers will have independent network stack without any special net configuration but only the `lo`(loopwork)network card is working for process communication.In this word,this mode cut out the minimum configuration.So it's free for developers to custom the container network as wish by using three-party tools with the `none` configuration ,that providing the highest flexibility.
 
 ### dependence
 #### Containers will communicate with others net namespace,so the isolation between containers will gone,and the isolation with host is still exist,The network model can refer to the following image:<br>
