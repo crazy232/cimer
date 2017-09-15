@@ -13,7 +13,7 @@
 	0b8ef9840de0        training/webapp     "python app.py"     5 minutes ago       Up 5 minutes        0.0.0.0:32768->5000/tcp   web
 ##### You can also use `docker inspect` to return the container's name.
 
-###Communication across links
+### Communication across links
 ##### Links allow containers to discover each other securely transfer information about one container to another container.When you set up alink ,you create a conduit between a source container and a recipient container.The recipient canthen access select data about the source.To create a link,you use the `--link` flag.First,create a new container,this time one containing a database.
 	sudo docker run -d --name db training/postgres
 ##### This creates a new container called `db` from the `training/postgres` image,which contains a PostgreSQL database.
