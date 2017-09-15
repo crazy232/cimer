@@ -83,4 +83,10 @@ public class HelloServiceMain {
 }
 
 ```
+#### 测试结果
+```java
+before say hello!
+Hello TOM
+I have said that!
+```
 
