@@ -1,6 +1,6 @@
 #### Mybaits框架源码中的XML解析器源码分析(org.apache.ibatis.builder.xml.XMLConfigBuilder)
 
-#### 主要看private void parseConfiguration(XNode root){}这个方法解析`environments`节点和`properties`节点，以下是这个类的所有源码，重要的函数有注释解释
+#### 主要看private void parseConfiguration(XNode root){}这个方法解析`environments`节点和`properties`节点，以下是这个类的源码，重要的函数有注释解释
 
 ``` java 
 public class XMLConfigBuilder extends BaseBuilder {
