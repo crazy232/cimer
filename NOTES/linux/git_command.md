@@ -95,7 +95,7 @@ return
 
 #### git rm
 
-```
+```shell
 # 当想删除某个文件时就需要使用git rm,然后在git commit 
 $ git rm LICENSE 
 rm 'LICENSE'
@@ -107,5 +107,89 @@ $ ls
 README.md
 
 #当然如果是误删，还可以使用 git reset
+```
+
+#### git branch
+
+```shell
+# git branch 查看当前分支
+$ git branch
+* dev
+  master
+ 
+ # git branch dev   创建dev分支
+ # git branch -d dev  删除dev分支
+```
+
+#### git checkout 
+
+```
+# 切换当前分支
+$ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+
+#加上 -b参数为新建并切换分支
+$ git checkout -b dev
+Switched to a new branch 'dev'
+
+```
+
+#### git merge
+
+```
+# git merge 用于合并两个分支，合并的方式有几种，例如下面的Fast-forward就是一种
+# 例如下，在dev分支创建branch.sh文件并git commit后，切换到master分支没有branch.sh
+# 通过git merge dev即可将dev分支创建的文件合并到master上
+$ ls
+LICENSE  README.md
+$ git merge dev
+Updating de0b9e7..78b0fa3
+Fast-forward
+ branch.sh | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 branch.sh
+$ ls
+branch.sh  LICENSE  README.md
+
+```
+
+#### git merge冲突解决
+
+```
+# git merge合并分支是也可能出现冲突，可通过git status查看冲突文件 如下提示：
+$ git merge fea
+Auto-merging branch.sh
+CONFLICT (content): Merge conflict in branch.sh
+Automatic merge failed; fix conflicts and then commit the result.
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+	both modified:   branch.sh
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+# 找到冲突文件后，多文件进行修改，再次git add 和git commit
+# 可以通过 git log 查看分支合并情况
+$ git log --graph --pretty=oneline --abbrev-commit
+*   4b771e8 fix conflict
+|\  
+| * 43d0f7e AND simple
+* | 6e42b0c & simple
+|/  
+* 78b0fa3 add branch.sh
+* de0b9e7 i will commit LICENSE
+* d4ed930 add file LICENSE
+* edee974 add i do to README.md
+* 7b35a95 change Readme.md
+* 90ef13d add Readme.md
+
 ```
 
