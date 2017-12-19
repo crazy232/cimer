@@ -59,7 +59,7 @@ a = subprocess.call('df -hT', shell=True)
 
 > subprocess.check_call(): 用法与subprocess.call()类似，区别在于当返回值不为0时，直接抛出异常
 
-```shell
+```python
 #!/usr/bin/env python
 import subprocess
 a = subprocess.check_call('df -hT', shell=True)
@@ -91,7 +91,7 @@ a = subprocess.check_call('dhdjef',shell=True)
 >
 > universal_newlines：不同系统的的换行符不同，当该参数设定为true时，则表示使用\n作为换行符
 
-```shell
+```python
 # 示例：在/root目录下创建test目录
 a = subprocess.Popen('mkdir test', shell=True, cwd='/root')
 
@@ -129,3 +129,36 @@ out = sub2.communicate()
 
 > sub.terminate() 终止进程
 
+```python
+# 如下实例为杀死所有Python进程
+#!/usr/bin/env python 
+import os
+import subprocess
+import traceback
+
+pid = os.getpid()
+
+def kill1():
+    os.system('kill -s 9 $( pgrep python)')
+
+def kill2():
+    try:
+        output = os.popen('pgrep python')
+        processes = output.read().split('\n')
+        processes.pop()
+        processes.remove(str(pid))
+        if len(processes):
+            for i in processes:
+                subprocess.Popen('kill -s 9 '+i, shell=True)
+            print 'All python process killed!'
+        else:
+            print 'No python process'
+    except:
+        traceback.print_exc()
+
+
+
+if __name__ == '__main__':
+    kill2()
+
+```
