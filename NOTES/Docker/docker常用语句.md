@@ -83,3 +83,8 @@ ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ```
 
+```shell
+# 配置加速器
+# 加速器地址参考https://cr.console.aliyun.com/?spm=5176.100239.blogcont29941.12.sNabT2#/accelerator
+echo "DOCKER_OPTS="--registry-mirror=https://****.mirror.aliyuncs.com"" >> /etc/default/docker
+```
