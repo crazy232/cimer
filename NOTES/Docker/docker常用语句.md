@@ -91,15 +91,15 @@ $ echo "DOCKER_OPTS="--registry-mirror=https://****.mirror.aliyuncs.com"" >> /et
 
 ```shell
 # 当push镜像到仓库时可能出现
-# Get https://172.16.2.250:5000/v1/_ping: http: server gave HTTP response to HTTPS client
+# Get https://ip:5000/v1/_ping: http: server gave HTTP response to HTTPS client
 # 需要额外配置参数
 
 # ubuntu 配置push到仓库
-$ echo "DOCKER_OPTS="$DOCKER_OPTS --insecure-registry=http://172.16.2.250:5000"" >> /etc/default/docker
+$ echo "DOCKER_OPTS="$DOCKER_OPTS --insecure-registry=http://ip:5000"" >> /etc/default/docker
 $ service docker restart
 
 # CentOS配置push到仓库
 # 在/etc/docker目录下创建daemon.json,写入如下内容：
-{ "insecure-registries" : ["172.16.2.250:5000"] }
+{ "insecure-registries" : ["ip:5000"] }
 $ service docker restart
 ```
