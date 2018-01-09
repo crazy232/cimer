@@ -103,3 +103,9 @@ $ service docker restart
 { "insecure-registries" : ["ip:5000"] }
 $ service docker restart
 ```
+```
+# 在宿主机中查看容器CPU,内存，网络,IO等占用情况
+$ sudo docker stats CONTAINERID
+CONTAINER           CPU %               MEM USAGE / LIMIT       MEM %               NET I/O               BLOCK I/O             PIDS
+elasticsearch       119.21%             490.5 MiB / 3.854 GiB   12.43%              248.6 MB / 258.8 MB   405.3 MB / 28.16 MB   79
+```
