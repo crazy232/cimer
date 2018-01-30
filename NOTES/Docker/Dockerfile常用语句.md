@@ -83,29 +83,4 @@ ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ```
 
-```shell
-# 配置加速器
-# 加速器地址参考https://cr.console.aliyun.com/?spm=5176.100239.blogcont29941.12.sNabT2#/accelerator
-$ echo "DOCKER_OPTS="--registry-mirror=https://****.mirror.aliyuncs.com"" >> /etc/default/docker
-```
 
-```shell
-# 当push镜像到仓库时可能出现
-# Get https://ip:5000/v1/_ping: http: server gave HTTP response to HTTPS client
-# 需要额外配置参数
-
-# ubuntu 配置push到仓库
-$ echo "DOCKER_OPTS="$DOCKER_OPTS --insecure-registry=http://ip:5000"" >> /etc/default/docker
-$ service docker restart
-
-# CentOS配置push到仓库
-# 在/etc/docker目录下创建daemon.json,写入如下内容：
-{ "insecure-registries" : ["ip:5000"] }
-$ service docker restart
-```
-```
-# 在宿主机中查看容器CPU,内存，网络,IO等占用情况
-$ sudo docker stats CONTAINERID
-CONTAINER           CPU %               MEM USAGE / LIMIT       MEM %               NET I/O               BLOCK I/O             PIDS
-elasticsearch       119.21%             490.5 MiB / 3.854 GiB   12.43%              248.6 MB / 258.8 MB   405.3 MB / 28.16 MB   79
-```
