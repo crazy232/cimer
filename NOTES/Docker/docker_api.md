@@ -44,37 +44,52 @@ class Client(requests.sessions.Session, docker.api.build.BuildApiMixin, docker.a
 
  |  
  |  ```__enter__(self)```
+ 
  |  
- |  ```__exit__(self, *args)``
+ |  ```__exit__(self, *args)```
+ 
  |  
  |```  __getstate__(self)```
+ 
  |  
  | ``` __setstate__(self, state)```
+ 
  |  
  |  ```close(self)```
+ 
  |      Closes all adapters and as such the session
+ 
  |  
  | ``` delete(self, url, **kwargs)```
+ 
  |      Sends a DELETE request. Returns :class:`Response` object.
+ 
  |      
  |      :param url: URL for the new :class:`Request` object.
+ 
  |      :param \*\*kwargs: Optional arguments that ``request`` takes.
+ 
  |      :rtype: requests.Response
+ 
  |  
  | ``` get(self, url, **kwargs)```
+ 
  |      Sends a GET request. Returns :class:`Response` object.
+ 
  |      
  |      :param url: URL for the new :class:`Request` object.
+ 
  |      :param \*\*kwargs: Optional arguments that ``request`` takes.
+ 
  |      :rtype: requests.Response
- |  
+ | 
  |```  head(self, url, **kwargs)```
  |      Sends a HEAD request. Returns :class:`Response` object.
- |      
  |      :param url: URL for the new :class:`Request` object.
  |      :param \*\*kwargs: Optional arguments that ``request`` takes.
+ 
  |      :rtype: requests.Response
- |  
+ 
  | ``` merge_environment_settings(self, url, proxies, stream, verify, cert)```
  |      Check the environment and merge it with some settings.
  |      
@@ -101,80 +116,13 @@ class Client(requests.sessions.Session, docker.api.build.BuildApiMixin, docker.a
  |      :rtype: requests.Response
  |  
  | ``` post(self, url, data=None, json=None, **kwargs)```
- |      Sends a POST request. Returns :class:`Response` object.
- |      
- |      :param url: URL for the new :class:`Request` object.
- |      :param data: (optional) Dictionary, bytes, or file-like object to send in the body of the :class:`Request`.
- |      :param json: (optional) json to send in the body of the :class:`Request`.
- |      :param \*\*kwargs: Optional arguments that ``request`` takes.
- |      :rtype: requests.Response
- |  
+ 
  | ``` prepare_request(self, request)```
- |      Constructs a :class:`PreparedRequest <PreparedRequest>` for
- |      transmission and returns it. The :class:`PreparedRequest` has settings
- |      merged from the :class:`Request <Request>` instance and those of the
- |      :class:`Session`.
- |      
- |      :param request: :class:`Request` instance to prepare with this
- |          session's settings.
- |      :rtype: requests.PreparedRequest
- |  
+ 
  |```  put(self, url, data=None, **kwargs)```
- |      Sends a PUT request. Returns :class:`Response` object.
- |      
- |      :param url: URL for the new :class:`Request` object.
- |      :param data: (optional) Dictionary, bytes, or file-like object to send in the body of the :class:`Request`.
- |      :param \*\*kwargs: Optional arguments that ``request`` takes.
- |      :rtype: requests.Response
- |  
+ 
  |  ```request(self, method, url, params=None, data=None, headers=None, cookies=None, files=None,auth=None, timeout=None, allow_redirects=True, proxies=None, hooks=None, stream=None, verify=None, cert=None, json=None)```
- |      Constructs a :class:`Request <Request>`, prepares it and sends it.
- |      Returns :class:`Response <Response>` object.
- |      
- |      :param method: method for the new :class:`Request` object.
- |      :param url: URL for the new :class:`Request` object.
- |      :param params: (optional) Dictionary or bytes to be sent in the query
- |          string for the :class:`Request`.
- |      :param data: (optional) Dictionary, bytes, or file-like object to send
- |          in the body of the :class:`Request`.
- |      :param json: (optional) json to send in the body of the
- |          :class:`Request`.
- |      :param headers: (optional) Dictionary of HTTP Headers to send with the
- |          :class:`Request`.
- |      :param cookies: (optional) Dict or CookieJar object to send with the
- |          :class:`Request`.
- |      :param files: (optional) Dictionary of ``'filename': file-like-objects``
- |          for multipart encoding upload.
- |      :param auth: (optional) Auth tuple or callable to enable
- |          Basic/Digest/Custom HTTP Auth.
- |      :param timeout: (optional) How long to wait for the server to send
- |          data before giving up, as a float, or a :ref:`(connect timeout,
- |          read timeout) <timeouts>` tuple.
- |      :type timeout: float or tuple
- |      :param allow_redirects: (optional) Set to True by default.
- |      :type allow_redirects: bool
- |      :param proxies: (optional) Dictionary mapping protocol or protocol and
- |          hostname to the URL of the proxy.
- |      :param stream: (optional) whether to immediately download the response
- |          content. Defaults to ``False``.
- |      :param verify: (optional) Either a boolean, in which case it controls whether we verify
- |          the server's TLS certificate, or a string, in which case it must be a path
- |          to a CA bundle to use. Defaults to ``True``.
- |      :param cert: (optional) if String, path to ssl client cert file (.pem).
- |          If Tuple, ('cert', 'key') pair.
- |      :rtype: requests.Response
- |  
- | ``` send(self, request, **kwargs)```
- |      Send a given PreparedRequest.
- |      
- |      :rtype: requests.Response
- |  
- |  ----------------------------------------------------------------------
- |  Data and other attributes inherited from requests.sessions.Session:
- |  
- | ``` __attrs__ = ['headers', 'cookies', 'auth', 'proxies', 'hooks', 'params...```
- |  
- |  ----------------------------------------------------------------------
+ 
 
 ####   Methods inherited from requests.sessions.SessionRedirectMixin:
 
