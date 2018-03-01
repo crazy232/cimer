@@ -19,4 +19,4 @@ $ ./install.sh
 ```shell
 $ curl -sSL https://get.daocloud.io/docker |sh
 ```
-
+> 手动安装请参考 [手动安装docker](https://github.com/crazychl/316-Contest/blob/316Team/Notes/docker/docker.md)
