@@ -33,4 +33,13 @@ Description:	Ubuntu 16.04.2 LTS
 Release:	16.04
 Codename:	xenial
 ```
+#### 清除history
+```shell
+$ history -c 
+$ echo ""> ./.bash_history
+```
 
+#### 清除last
+```shell
+$ echo "">/var/log/wtmp
+```
