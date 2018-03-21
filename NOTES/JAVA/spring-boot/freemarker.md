@@ -74,6 +74,20 @@ ${key}:${map[key]}
 - if-else
 
 ```shell
+# freemarker中显示某对象使用${name}.
+# 但如果name为null，freemarker就会报错。如果需要判断对象是否为空：
+<#if name??>
+..
+</#if>
+```
+
+```shell
+# 对象user，name为user的属性的情况，user，name都有可能为空，那么可以写成${(user.name)!''},表示user或者name为null，都显示为空。判断为空
+<#if (user.name)??>
+……
+</#if>
+```
+```shell
  <#assign age = 20 /><br>
 <#if age == 18>
       <font color="red"> age = 18</font>
