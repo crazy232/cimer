@@ -4,6 +4,15 @@
 ```shell
 # 加速器地址参考https://cr.console.aliyun.com/?spm=5176.100239.blogcont29941.12.sNabT2#/accelerator
 $ echo "DOCKER_OPTS="--registry-mirror=https://****.mirror.aliyuncs.com"" >> /etc/default/docker
+
+# 或者
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://s8oicww8.mirror.aliyuncs.com"]
+}
+EOF
+sudo service docker restart
 ```
 - 仓库使用
 ```shell
